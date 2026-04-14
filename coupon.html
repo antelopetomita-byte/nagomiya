@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月初限定クーポン | 風の谷の和み屋</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1512;--washi:#f5f0e8;--matcha:#6b7c5a;--gold:#b8963e;--gold-light:#d4b06a;--clay:#9e7b5a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ink);font-family:'Shippori Mincho',serif;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+  .out-of-period{text-align:center;color:var(--washi);max-width:360px;}
+  .out-of-period h2{font-size:22px;letter-spacing:.15em;margin-bottom:16px;color:var(--gold-light);}
+  .out-of-period p{font-size:14px;line-height:2.2;color:rgba(245,240,232,0.5);margin-bottom:32px;}
+  .next-date{display:inline-block;padding:12px 28px;border:1px solid rgba(184,150,62,0.4);color:var(--gold-light);font-size:13px;letter-spacing:.2em;}
+  .coupon-wrap{width:100%;max-width:380px;animation:fadeUp .8s ease forwards;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .coupon-header{background:var(--matcha);padding:20px 32px;text-align:center;}
+  .coupon-header .shop-name{font-size:13px;letter-spacing:.3em;color:rgba(245,240,232,0.7);margin-bottom:4px;}
+  .coupon-header .coupon-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:.3em;color:var(--gold-light);}
+  .coupon-body{background:var(--washi);padding:40px 32px 32px;}
+  .coupon-month{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.3em;color:var(--matcha);text-align:center;margin-bottom:8px;}
+  .coupon-discount{text-align:center;margin-bottom:24px;}
+  .coupon-discount .amount{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--ink);line-height:1;}
+  .coupon-discount .unit{font-size:20px;color:var(--ink);}
+  .coupon-discount .label{font-size:16px;letter-spacing:.2em;color:var(--clay);margin-top:8px;}
+  .coupon-divider{border:none;border-top:1px dashed rgba(107,124,90,0.3);margin:24px 0;}
+  .coupon-info{font-size:12px;letter-spacing:.1em;line-height:2.2;color:var(--clay);}
+  .coupon-info li{list-style:none;padding-left:16px;position:relative;}
+  .coupon-info li::before{content:'・';position:absolute;left:0;}
+  .coupon-number{text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid rgba(107,124,90,0.15);}
+  .coupon-number .num-label{font-size:10px;letter-spacing:.3em;color:var(--matcha);margin-bottom:8px;}
+  .coupon-number .num{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.3em;color:var(--ink);}
+  .coupon-expire{background:var(--ink);padding:16px 32px;text-align:center;}
+  .coupon-expire .exp-label{font-size:10px;letter-spacing:.3em;color:rgba(245,240,232,0.4);margin-bottom:4px;}
+  .coupon-expire .exp-date{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:.2em;color:var(--gold-light);}
+  .back-link{margin-top:32px;text-align:center;}
+  .back-link a{font-size:11px;letter-spacing:.25em;color:rgba(245,240,232,0.3);text-decoration:none;}
+  .admin-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(26,21,18,0.95);border-top:1px solid rgba(184,150,62,0.2);padding:16px 24px;display:none;justify-content:space-between;align-items:center;z-index:100;}
+  .admin-panel.show{display:flex;}
+  .admin-count{font-size:13px;color:rgba(245,240,232,0.6);}
+  .admin-count span{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold-light);margin:0 8px;}
+  .admin-reset{font-size:11px;color:var(--clay);background:none;border:1px solid rgba(158,123,90,0.3);padding:8px 16px;cursor:pointer;font-family:'Shippori Mincho',serif;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+  const STORAGE_KEY='nagomiya_coupon';
+  const now=new Date();
+  const day=now.getDate();
+  const month=now.getMonth()+1;
+  const year=now.getFullYear();
+  const isValid=day>=1&&day<=3;
+  const countKey=`${STORAGE_KEY}_count_${year}_${month}`;
+  const issuedKey=`${STORAGE_KEY}_issued_${year}_${month}`;
+  function getCount(){return parseInt(localStorage.getItem(countKey)||'0');}
+  function hasIssued(){return localStorage.getItem(issuedKey)==='true';}
+  function markIssued(){localStorage.setItem(issuedKey,'true');}
+  function genCouponNo(){const s=localStorage.getItem(issuedKey+'_no');if(s)return s;const n=`NW-${year}${String(month).padStart(2,'0')}-${String(Math.floor(Math.random()*9000)+1000)}`;localStorage.setItem(issuedKey+'_no',n);return n;}
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const lastDay=new Date(year,month,0).getDate();
+  const expireStr=`${year}年${month}月${lastDay}日`;
+  const app=document.getElementById('app');
+  if(!isValid){
+    const nextMonth=month===12?1:month+1;
+    app.innerHTML=`<div class="out-of-period"><div style="font-size:48px;margin-bottom:24px;opacity:.4">🌿</div><h2>クーポン発行期間外です</h2><p>毎月1日〜3日の期間限定で<br>2,000円割引クーポンを発行しています。</p><div class="next-date">次回発行：${nextMonth}月 1日〜3日</div></div><div class="back-link"><a href="index.html">← サイトに戻る</a></div>`;
+  }else{
+    if(!hasIssued()){localStorage.setItem(countKey,getCount()+1);markIssued();}
+    const couponNo=genCouponNo();
+    app.innerHTML=`<div class="coupon-wrap"><div class="coupon-header"><p class="shop-name">風の谷の和み屋</p><p class="coupon-label">${monthNames[month-1]} Limited Coupon</p></div><div class="coupon-body"><p class="coupon-month">${year}年 ${month}月 限定</p><div class="coupon-discount"><div><span class="amount">2,000</span><span class="unit">円</span></div><p class="label">割　引</p></div><hr class="coupon-divider"><ul class="coupon-info"><li>全メニューに使えます</li><li>お電話予約の際にお伝えください</li><li>他の割引との併用不可</li><li>1回限り有効</li></ul><div class="coupon-number"><p class="num-label">COUPON NO.</p><p class="num">${couponNo}</p></div></div><div class="coupon-expire"><p class="exp-label">有効期限</p><p class="exp-date">${expireStr}まで</p></div></div><div class="back-link"><a href="index.html">← サイトに戻る</a></div>`;
+  }
+  if(location.search.includes('admin=1')){const p=document.createElement('div');p.className='admin-panel show';p.innerHTML=`<div class="admin-count">${year}年${month}月 発行数 <span id="countNum">${getCount()}</span> 件</div><button class="admin-reset" onclick="if(confirm('リセットしますか？')){localStorage.removeItem('${countKey}');document.getElementById('countNum').textContent='0'}">リセット</button>`;document.body.appendChild(p);}
+</script>
+</body>
+</html>
