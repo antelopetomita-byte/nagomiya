@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="icon.svg">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <title>風の谷の和み屋 | 整体院 平塚</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Hina+Mincho&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #1a1512;
@@ -29,8 +29,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-background: var(–washi);
-color: var(–ink);
+background: #f5f0e8;
+color: #1a1512;
 font-family: ‘Noto Serif JP’, serif;
 overflow-x: hidden;
 }
@@ -100,28 +100,14 @@ height: 80%;
 opacity: 0.06;
 }
 
-/* 竹の節のような縦線装飾 */
-.hero-lines {
-position: absolute;
-inset: 0;
-pointer-events: none;
-}
-.hero-lines::before,
-.hero-lines::after {
-content: ‘’;
-position: absolute;
-top: 0; bottom: 0;
-width: 1px;
-background: linear-gradient(to bottom, transparent 0%, rgba(107,124,90,0.2) 30%, rgba(107,124,90,0.2) 70%, transparent 100%);
-}
-.hero-lines::before { left: 15%; }
-.hero-lines::after  { right: 15%; }
+/* 縦線装飾なし */
+.hero-lines { display: none; }
 
 .hero-kana {
 font-family: ‘Shippori Mincho’, serif;
 font-size: clamp(10px, 2vw, 13px);
 letter-spacing: 0.4em;
-color: var(–matcha);
+color: #6b7c5a;
 text-transform: uppercase;
 margin-bottom: 28px;
 opacity: 0;
@@ -134,7 +120,7 @@ font-size: clamp(38px, 8vw, 80px);
 font-weight: 700;
 line-height: 1.15;
 letter-spacing: 0.08em;
-color: var(–ink);
+color: #1a1512;
 margin-bottom: 16px;
 opacity: 0;
 animation: fadeUp 1s 0.5s ease forwards;
@@ -144,17 +130,17 @@ animation: fadeUp 1s 0.5s ease forwards;
 display: block;
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
-font-size: clamp(14px, 2.5vw, 20px);
+font-size: clamp(13px, 2.2vw, 18px);
 font-weight: 300;
-letter-spacing: 0.3em;
-color: var(–gold);
-margin-top: 12px;
+letter-spacing: 0.25em;
+color: #b8963e;
+margin-top: 14px;
 }
 
 .hero-tagline {
 font-size: clamp(12px, 1.8vw, 15px);
 letter-spacing: 0.25em;
-color: var(–clay);
+color: #9e7b5a;
 margin-bottom: 56px;
 line-height: 2;
 opacity: 0;
@@ -164,8 +150,8 @@ animation: fadeUp 1s 0.7s ease forwards;
 .hero-cta {
 display: inline-block;
 padding: 16px 48px;
-border: 1px solid var(–gold);
-color: var(–gold);
+border: 1px solid #b8963e;
+color: #b8963e;
 font-family: ‘Shippori Mincho’, serif;
 font-size: 13px;
 letter-spacing: 0.3em;
@@ -180,13 +166,13 @@ animation: fadeUp 1s 0.9s ease forwards;
 content: ‘’;
 position: absolute;
 inset: 0;
-background: var(–gold);
+background: #b8963e;
 transform: scaleX(0);
 transform-origin: left;
 transition: transform 0.4s ease;
 z-index: -1;
 }
-.hero-cta:hover { color: var(–washi); }
+.hero-cta:hover { color: #f5f0e8; }
 .hero-cta:hover::before { transform: scaleX(1); }
 
 .hero-scroll {
@@ -204,12 +190,12 @@ animation: fadeUp 1s 1.2s ease forwards;
 .hero-scroll span {
 font-size: 9px;
 letter-spacing: 0.3em;
-color: var(–matcha);
+color: #6b7c5a;
 }
 .scroll-line {
 width: 1px;
 height: 40px;
-background: linear-gradient(to bottom, var(–matcha), transparent);
+background: linear-gradient(to bottom, #6b7c5a, transparent);
 animation: scrollAnim 2s 1.5s ease-in-out infinite;
 }
 
@@ -230,14 +216,14 @@ margin-bottom: 48px;
 content: ‘’;
 flex: 1;
 height: 1px;
-background: linear-gradient(to right, var(–gold-light), transparent);
+background: linear-gradient(to right, #d4b06a, transparent);
 }
 .section-label span {
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
 font-size: 13px;
 letter-spacing: 0.3em;
-color: var(–gold);
+color: #b8963e;
 white-space: nowrap;
 }
 
@@ -261,14 +247,14 @@ text-align: center;
 font-size: clamp(14px, 1.8vw, 16px);
 line-height: 2.4;
 letter-spacing: 0.1em;
-color: var(–deep);
+color: #2d2420;
 opacity: 0.85;
 }
 
 .concept-divider {
 width: 40px;
 height: 1px;
-background: var(–gold);
+background: #b8963e;
 margin: 48px auto;
 }
 
@@ -278,7 +264,7 @@ font-size: clamp(20px, 3vw, 28px);
 font-weight: 400;
 letter-spacing: 0.15em;
 line-height: 1.8;
-color: var(–matcha);
+color: #6b7c5a;
 margin-bottom: 16px;
 }
 
@@ -296,7 +282,7 @@ margin: 0 auto;
 }
 
 .feature-card {
-background: var(–washi);
+background: #f5f0e8;
 padding: 48px 36px;
 position: relative;
 overflow: hidden;
@@ -308,7 +294,7 @@ position: absolute;
 top: 0; left: 0;
 width: 3px;
 height: 0;
-background: var(–gold);
+background: #b8963e;
 transition: height 0.4s ease;
 }
 .feature-card:hover { transform: translateY(-4px); }
@@ -318,7 +304,7 @@ transition: height 0.4s ease;
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 48px;
 font-weight: 300;
-color: var(–mist);
+color: #e8e2d6;
 line-height: 1;
 margin-bottom: 20px;
 }
@@ -328,14 +314,14 @@ font-family: ‘Shippori Mincho’, serif;
 font-size: 18px;
 letter-spacing: 0.15em;
 margin-bottom: 16px;
-color: var(–ink);
+color: #1a1512;
 }
 
 .feature-body {
 font-size: 14px;
 line-height: 2.2;
 letter-spacing: 0.05em;
-color: var(–clay);
+color: #9e7b5a;
 }
 
 /* ── MENU ── */
@@ -369,14 +355,14 @@ margin-bottom: 5px;
 .menu-price {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(18px, 2.5vw, 22px);
-color: var(–gold);
+color: #b8963e;
 white-space: nowrap;
 }
 
 .menu-note {
 font-size: 12px;
 letter-spacing: 0.1em;
-color: var(–clay);
+color: #9e7b5a;
 margin-top: 20px;
 line-height: 2;
 }
@@ -385,7 +371,7 @@ line-height: 2;
 .voice-bg {
 background:
 linear-gradient(175deg, rgba(107,124,90,0.06) 0%, transparent 50%),
-var(–washi);
+#f5f0e8;
 }
 
 .voice-card {
@@ -393,7 +379,7 @@ max-width: 680px;
 margin: 0 auto;
 padding: 52px 48px;
 background: white;
-border-left: 3px solid var(–gold);
+border-left: 3px solid #b8963e;
 position: relative;
 box-shadow: 8px 8px 40px rgba(26,21,18,0.06);
 }
@@ -405,7 +391,7 @@ top: -20px;
 left: 36px;
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 120px;
-color: var(–mist);
+color: #e8e2d6;
 line-height: 1;
 }
 
@@ -413,7 +399,7 @@ line-height: 1;
 font-size: clamp(14px, 1.8vw, 16px);
 line-height: 2.4;
 letter-spacing: 0.08em;
-color: var(–deep);
+color: #2d2420;
 position: relative;
 z-index: 1;
 }
@@ -422,7 +408,7 @@ z-index: 1;
 margin-top: 28px;
 font-size: 12px;
 letter-spacing: 0.2em;
-color: var(–matcha);
+color: #6b7c5a;
 }
 
 .voice-grid {
@@ -480,7 +466,7 @@ animation: pinPulse 2s ease-in-out infinite;
 font-family: ‘Shippori Mincho’, serif;
 font-size: 13px;
 letter-spacing: 0.15em;
-color: var(–ink);
+color: #1a1512;
 background: white;
 padding: 6px 14px;
 box-shadow: 0 2px 12px rgba(26,21,18,0.12);
@@ -492,8 +478,8 @@ position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%) scale(0.9);
-background: var(–ink);
-color: var(–washi);
+background: #1a1512;
+color: #f5f0e8;
 padding: 14px 28px;
 display: flex;
 align-items: center;
@@ -507,7 +493,7 @@ z-index: 3;
 }
 
 .map-overlay {
-background: var(–ink);
+background: #1a1512;
 padding: 40px 32px;
 display: flex;
 justify-content: center;
@@ -518,7 +504,7 @@ flex-wrap: wrap;
 .map-info-label {
 font-size: 10px;
 letter-spacing: 0.3em;
-color: var(–gold);
+color: #b8963e;
 margin-bottom: 8px;
 }
 .map-info-value {
@@ -557,7 +543,7 @@ border-bottom: 1px solid rgba(107,124,90,0.1);
 .info-table th {
 font-size: 11px;
 letter-spacing: 0.2em;
-color: var(–matcha);
+color: #6b7c5a;
 font-weight: 400;
 padding: 18px 16px 18px 0;
 vertical-align: top;
@@ -569,11 +555,11 @@ font-size: 14px;
 letter-spacing: 0.05em;
 padding: 18px 0;
 line-height: 1.8;
-color: var(–deep);
+color: #2d2420;
 }
 
 .map-frame {
-background: var(–mist);
+background: #e8e2d6;
 aspect-ratio: 4/3;
 overflow: hidden;
 }
@@ -587,16 +573,16 @@ filter: sepia(20%) saturate(80%);
 /* ── RESERVE ── */
 .reserve {
 text-align: center;
-background: var(–ink);
-color: var(–washi);
+background: #1a1512;
+color: #f5f0e8;
 padding: 100px 24px;
 }
 
 .reserve .section-label::after {
 background: linear-gradient(to right, rgba(184,150,62,0.5), transparent);
 }
-.reserve .section-label span { color: var(–gold-light); }
-.reserve .section-title { color: var(–washi); }
+.reserve .section-label span { color: #d4b06a; }
+.reserve .section-title { color: #f5f0e8; }
 
 .reserve-note {
 font-size: 14px;
@@ -612,7 +598,7 @@ font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(32px, 6vw, 52px);
 font-weight: 300;
 letter-spacing: 0.15em;
-color: var(–gold-light);
+color: #d4b06a;
 text-decoration: none;
 margin-bottom: 12px;
 transition: opacity 0.3s;
@@ -691,7 +677,7 @@ color: rgba(245,240,232,0.9);
 
 /* ── FOOTER ── */
 footer {
-background: var(–deep);
+background: #2d2420;
 padding: 40px 24px;
 text-align: center;
 }
@@ -730,7 +716,7 @@ box-shadow: 0 1px 20px rgba(26,21,18,0.08);
 font-family: ‘Shippori Mincho’, serif;
 font-size: 15px;
 letter-spacing: 0.2em;
-color: var(–ink);
+color: #1a1512;
 text-decoration: none;
 }
 
@@ -742,7 +728,7 @@ list-style: none;
 .nav-links a {
 font-size: 11px;
 letter-spacing: 0.2em;
-color: var(–ink);
+color: #1a1512;
 text-decoration: none;
 opacity: 0.6;
 transition: opacity 0.3s;
@@ -780,7 +766,7 @@ border: none;
 display: block;
 width: 22px;
 height: 1.5px;
-background: var(–ink);
+background: #1a1512;
 transition: transform 0.3s, opacity 0.3s;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -834,7 +820,7 @@ transform: translateY(-50%);
     <li><a href="#menu" onclick="closeMenu()">メニュー</a></li>
     <li><a href="#access" onclick="closeMenu()">アクセス</a></li>
     <li><a href="#reserve" onclick="closeMenu()">ご予約</a></li>
-    <li><a href="coupon.html" onclick="closeMenu()" style="color:var(--gold) !important; opacity:1 !important;">クーポン</a></li>
+    <li><a href="coupon.html" onclick="closeMenu()" style="color:#b8963e !important; opacity:1 !important;">クーポン</a></li>
   </ul>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="メニュー">
     <span></span><span></span><span></span>
@@ -937,7 +923,7 @@ transform: translateY(-50%);
   <p class="hero-kana">整　体　院　／　平　塚</p>
   <h1 class="hero-title">
     風の谷の和み屋
-    <span>kazeno tani no nagomiya</span>
+    <span>kazenotanino nagomiya</span>
   </h1>
   <p class="hero-tagline">
     心と身体を軽くして、<br>
@@ -953,7 +939,7 @@ transform: translateY(-50%);
 
 <!-- CONCEPT -->
 
-<section id="concept" style="background: var(--washi); position: relative; overflow: hidden;">
+<section id="concept" style="background: #f5f0e8; position: relative; overflow: hidden;">
   <!-- 竹林の自然背景 -->
   <div class="nature-bg">
     <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -997,24 +983,24 @@ transform: translateY(-50%);
 
 <!-- SPACE -->
 
-<section style="background: var(--ink); padding: 100px 24px 0;">
+<section style="background: #1a1512; padding: 100px 24px 0;">
   <div style="max-width: 860px; margin: 0 auto;">
     <div class="reveal">
       <div class="section-label" style="margin-bottom: 32px;">
-        <span style="color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 0.3em;">Space &amp; Interior</span>
+        <span style="color: #d4b06a; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 0.3em;">Space &amp; Interior</span>
         <div style="flex:1; height:1px; background: linear-gradient(to right, rgba(184,150,62,0.4), transparent);"></div>
       </div>
-      <h2 style="font-family: 'Shippori Mincho', serif; font-size: clamp(22px, 3.5vw, 34px); letter-spacing: 0.12em; line-height: 1.7; color: var(--washi); margin-bottom: 28px;">
+      <h2 style="font-family: 'Shippori Mincho', serif; font-size: clamp(22px, 3.5vw, 34px); letter-spacing: 0.12em; line-height: 1.7; color: #f5f0e8; margin-bottom: 28px;">
         唯一無二の<br>古民家施術空間
       </h2>
       <p style="font-size: 15px; line-height: 2.6; letter-spacing: 0.08em; color: rgba(245,240,232,0.65); margin-bottom: 36px;">
         施術室は、家具・店舗内装・住宅リノベーションを手がける<br>
-        <strong style="color: var(--gold-light); font-weight: 500;">なでしこブルックリン</strong> が製作。<br>
+        <strong style="color: #d4b06a; font-weight: 500;">なでしこブルックリン</strong> が製作。<br>
         古民家の趣を活かしながら、感性豊かなクリエイターの手によって<br>
         どこにもない、独創的な癒しの空間へと生まれ変わりました。
       </p>
       <a href="https://www.nadeshikobrooklyn.com/" target="_blank" rel="noopener"
-        style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); font-size: 12px; letter-spacing: 0.25em; text-decoration: none; transition: background 0.3s, color 0.3s;"
+        style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border: 1px solid #b8963e; color: #b8963e; font-size: 12px; letter-spacing: 0.25em; text-decoration: none; transition: background 0.3s, color 0.3s;"
         onmouseover="this.style.background='#b8963e';this.style.color='#1a1512'"
         onmouseout="this.style.background='transparent';this.style.color='#b8963e'">
         なでしこブルックリン Web サイト
@@ -1089,7 +1075,7 @@ transform: translateY(-50%);
 
 <!-- MENU -->
 
-<section id="menu" style="background: var(--washi); position: relative; overflow: hidden;">
+<section id="menu" style="background: #f5f0e8; position: relative; overflow: hidden;">
   <!-- 川・水辺の自然背景 -->
   <div class="nature-bg">
     <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -1112,42 +1098,70 @@ transform: translateY(-50%);
       <span>Menu &amp; Price</span>
     </div>
     <h2 class="section-title reveal">メニュー</h2>
-    <div class="reveal">
-      <div class="menu-item">
-        <span class="menu-name">整体（45分）</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">¥5,000</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-name">整体（60分）</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">¥7,000</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-name">整体（90分）</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">¥10,000</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-name">小顔リンパマッサージ（60分）</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">¥6,000</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-name">出張施術</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">要相談</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-name">姿勢作りセミナー</span>
-        <span class="menu-dots"></span>
-        <span class="menu-price">要相談</span>
-      </div>
+
+```
+<div class="reveal">
+  <div style="margin-bottom: 12px; padding: 20px 24px; border-left: 2px solid #b8963e; background: rgba(184,150,62,0.05); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#b8963e; margin-bottom:4px;">BEGINNER</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">整体（45分）</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">お試しに</p>
     </div>
-    <p class="menu-note reveal">
-      ※ 完全予約制です。お電話にてご予約ください。<br>
-      ※ 駐車場1台分あります。
-    </p>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#b8963e; white-space:nowrap;">¥5,000</span>
+  </div>
+
+  <div style="margin-bottom: 12px; padding: 20px 24px; border-left: 3px solid #b8963e; background: rgba(184,150,62,0.09); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#b8963e; margin-bottom:4px;">STANDARD ★ おすすめ</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">整体（60分）</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">初めての方に最適・標準コース</p>
+    </div>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#b8963e; white-space:nowrap;">¥7,000</span>
+  </div>
+
+  <div style="margin-bottom: 12px; padding: 20px 24px; border-left: 2px solid #6b7c5a; background: rgba(107,124,90,0.05); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#6b7c5a; margin-bottom:4px;">DEEP CARE</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">整体（90分）</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">じっくり全身を整えたい方に</p>
+    </div>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#b8963e; white-space:nowrap;">¥10,000</span>
+  </div>
+
+  <div style="margin-bottom: 12px; padding: 20px 24px; border-left: 2px solid #9e7b5a; background: rgba(158,123,90,0.05); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#9e7b5a; margin-bottom:4px;">BEAUTY</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">小顔リンパマッサージ（60分）</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">顔のむくみ・すっきり感重視</p>
+    </div>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#b8963e; white-space:nowrap;">¥6,000</span>
+  </div>
+
+  <div style="margin-bottom: 12px; padding: 20px 24px; border-left: 2px solid rgba(107,124,90,0.3); background: rgba(107,124,90,0.03); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#6b7c5a; margin-bottom:4px;">VISIT</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">出張施術</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">施術料金＋交通費（地域によりご相談）</p>
+    </div>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:18px; color:#9e7b5a; white-space:nowrap;">要相談</span>
+  </div>
+
+  <div style="padding: 20px 24px; border-left: 2px solid rgba(107,124,90,0.3); background: rgba(107,124,90,0.03); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+    <div>
+      <p style="font-size:10px; letter-spacing:.3em; color:#6b7c5a; margin-bottom:4px;">SEMINAR</p>
+      <p style="font-size:15px; letter-spacing:.08em; color:#1a1512;">姿勢作りセミナー</p>
+      <p style="font-size:12px; color:#9e7b5a; margin-top:4px;">サービス業の方向け・グループ対応可</p>
+    </div>
+    <span style="font-family:'Cormorant Garamond',serif; font-size:18px; color:#9e7b5a; white-space:nowrap;">要相談</span>
+  </div>
+</div>
+
+<p class="menu-note reveal">
+  ※ 完全予約制です。LINE・お電話にてご予約ください。<br>
+  ※ 駐車場1台分あります。
+</p>
+```
+
   </div>
 </section>
 
@@ -1212,34 +1226,43 @@ transform: translateY(-50%);
     <p class="voice-author">— 50代 女性 / 横浜市</p>
   </div>
 
-  <div class="voice-card reveal">
-    <p class="voice-text">
-      小田原からでも足を運ぶ価値があります。産後の骨盤の歪みが気になっていたのですが、丁寧なカウンセリングの後に施術していただき、体の変化をはっきりと実感できました。完全個室なので子育て中でも気兼ねなく自分だけの時間が持てて、本当に救われています。
-    </p>
-    <p class="voice-author">— 30代 女性 / 小田原市</p>
-  </div>
+</div>
 
-  <div class="voice-card reveal">
-    <p class="voice-text">
-      サービス業の仕事柄、姿勢の悪さが接客に影響していると感じていました。姿勢作りセミナーを受けてから、お客様に「印象が変わったね」と言われるように。整体の施術も受けていますが、体だけでなく気持ちの持ち方まで教えていただける先生です。
-    </p>
-    <p class="voice-author">— 30代 男性 / 海老名市</p>
-  </div>
+<!-- 折りたたみ追加分 -->
+<div id="voiceMore" style="display:none; margin-top:24px;">
+  <div class="voice-grid">
 
-  <div class="voice-card reveal">
-    <p class="voice-text">
-      もともと整体で通っていたのですが、小顔リンパマッサージがあると聞いて試してみました。施術前は半信半疑だったのですが、終わった後に鏡を見てびっくり。顔がすっきりと小さくなっていて、むくみがすっかり取れていました。首から鎖骨にかけてのリンパを丁寧に流してくださるので、施術中はとろけるような気持ちよさ。翌朝も顔がすっきりしていて、会社の同僚に「なんか顔変わった？」と言われたほどです。西山先生の手の感覚が絶妙で、痛みは全くなく、むしろ眠ってしまいそうなくらいリラックスできます。古民家の静かな空間の中でうける施術は、まるで上質なスパにいるような感覚。60分という時間があっという間で、もっといたいと思うくらいでした。これからは整体と小顔マッサージを交互に通おうと決めています。
-    </p>
-    <p class="voice-author">— 30代 女性 / 茅ヶ崎市（小顔リンパマッサージ）</p>
-  </div>
+    <div class="voice-card">
+      <p class="voice-text">小田原からでも足を運ぶ価値があります。産後の骨盤の歪みが気になっていたのですが、丁寧なカウンセリングの後に施術していただき、体の変化をはっきりと実感できました。完全個室なので子育て中でも気兼ねなく自分だけの時間が持てて、本当に救われています。</p>
+      <p class="voice-author">— 30代 女性 / 小田原市</p>
+    </div>
 
-  <div class="voice-card reveal">
-    <p class="voice-text">
-      むくみやすい体質で、特に顔のたるみが気になっていました。小顔リンパマッサージを受けてみると、施術後に顔の輪郭がシャープになっていて驚き。痛みもなく、とにかく気持ちよくて夢見心地でした。定期的に通いたいと思える一生もののお店に出会えた気がします。
-    </p>
-    <p class="voice-author">— 40代 女性 / 伊勢原市（小顔リンパマッサージ）</p>
-  </div>
+    <div class="voice-card">
+      <p class="voice-text">サービス業の仕事柄、姿勢の悪さが接客に影響していると感じていました。姿勢作りセミナーを受けてから、お客様に「印象が変わったね」と言われるように。整体の施術も受けていますが、体だけでなく気持ちの持ち方まで教えていただける先生です。</p>
+      <p class="voice-author">— 30代 男性 / 海老名市</p>
+    </div>
 
+    <div class="voice-card">
+      <p class="voice-text">もともと整体で通っていたのですが、小顔リンパマッサージがあると聞いて試してみました。終わった後に鏡を見てびっくり。顔がすっきりと小さくなっていて、むくみがすっかり取れていました。西山先生の手の感覚が絶妙で、痛みは全くなく、むしろ眠ってしまいそうなくらいリラックスできます。これからは整体と小顔マッサージを交互に通おうと決めています。</p>
+      <p class="voice-author">— 30代 女性 / 茅ヶ崎市（小顔リンパマッサージ）</p>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-text">むくみやすい体質で、特に顔のたるみが気になっていました。小顔リンパマッサージを受けてみると、施術後に顔の輪郭がシャープになっていて驚き。痛みもなく、とにかく気持ちよくて夢見心地でした。定期的に通いたいと思える一生もののお店に出会えた気がします。</p>
+      <p class="voice-author">— 40代 女性 / 伊勢原市（小顔リンパマッサージ）</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- もっと見るボタン -->
+<div style="text-align:center; margin-top:40px;">
+  <button id="voiceBtn" onclick="toggleVoice()"
+    style="padding:14px 40px; border:1px solid #b8963e; background:transparent; color:#b8963e; font-family:'Shippori Mincho',serif; font-size:13px; letter-spacing:.25em; cursor:pointer; transition:all .3s;"
+    onmouseover="this.style.background='#b8963e';this.style.color='#f5f0e8'"
+    onmouseout="this.style.background='transparent';this.style.color='#b8963e'">
+    もっと見る ＋
+  </button>
 </div>
 ```
 
@@ -1291,10 +1314,6 @@ transform: translateY(-50%);
   </a>
   <div class="map-overlay">
     <div class="map-info-item">
-      <p class="map-info-label">ADDRESS</p>
-      <p class="map-info-value">〒254-0915<br>神奈川県平塚市出縄570-1</p>
-    </div>
-    <div class="map-info-item">
       <p class="map-info-label">TEL</p>
       <p class="map-info-value">0463-67-6342</p>
     </div>
@@ -1311,7 +1330,7 @@ transform: translateY(-50%);
 
 <!-- ACCESS -->
 
-<section id="access" style="background: var(--washi); position: relative; overflow: hidden;">
+<section id="access" style="background: #f5f0e8; position: relative; overflow: hidden;">
   <!-- 野原・丘の自然背景 -->
   <div class="nature-bg">
     <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -1334,7 +1353,7 @@ transform: translateY(-50%);
       <span>Access</span>
     </div>
     <h2 class="section-title reveal">アクセス</h2>
-    <div class="access-grid">
+    <div class="access-grid" style="grid-template-columns: 1fr;">
       <div class="reveal">
         <table class="info-table">
           <tr>
@@ -1355,16 +1374,9 @@ transform: translateY(-50%);
           </tr>
           <tr>
             <th>定休日</th>
-            <td>要問合せ</td>
+            <td>不定休</td>
           </tr>
         </table>
-      </div>
-      <div class="map-frame reveal">
-        <iframe
-          src="https://maps.google.com/maps?q=神奈川県平塚市出縄570-1&output=embed"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
       </div>
     </div>
   </div>
@@ -1372,7 +1384,7 @@ transform: translateY(-50%);
 
 <!-- COUPON & LINE -->
 
-<section style="background: var(--washi); padding: 100px 24px; position: relative; overflow: hidden;">
+<section style="background: #f5f0e8; padding: 100px 24px; position: relative; overflow: hidden;">
   <div class="nature-bg">
     <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,250 Q200,150 400,200 Q600,250 800,180 L800,400 L0,400Z" fill="#8fa07a"/>
@@ -1388,9 +1400,9 @@ transform: translateY(-50%);
     <span>Monthly Coupon</span>
   </div>
   <h2 class="section-title">月初限定<br>割引クーポン</h2>
-  <p style="font-size:14px; line-height:2.4; letter-spacing:.08em; color:var(--clay); margin-bottom:28px;">
-    毎月<strong style="color:var(--ink);">1日〜3日</strong>の3日間限定で<br>
-    <strong style="color:var(--gold); font-size:18px;">2,000円割引</strong>クーポンを発行。<br>
+  <p style="font-size:14px; line-height:2.4; letter-spacing:.08em; color:#9e7b5a; margin-bottom:28px;">
+    毎月<strong style="color:#1a1512;">1日〜3日</strong>の3日間限定で<br>
+    <strong style="color:#b8963e; font-size:18px;">2,000円割引</strong>クーポンを発行。<br>
     QRコードを読み込むとその月末まで<br>使えるクーポンが発行されます。
   </p>
   <div id="couponArea">
@@ -1404,7 +1416,7 @@ transform: translateY(-50%);
     <span>LINE</span>
   </div>
   <h2 class="section-title">LINEで<br>お問い合わせ</h2>
-  <p style="font-size:14px; line-height:2.4; letter-spacing:.08em; color:var(--clay); margin-bottom:28px;">
+  <p style="font-size:14px; line-height:2.4; letter-spacing:.08em; color:#9e7b5a; margin-bottom:28px;">
     ご予約・ご質問はLINEでも<br>お気軽にどうぞ。<br>
     友だち追加後にメッセージをお送りください。
   </p>
@@ -1421,7 +1433,7 @@ transform: translateY(-50%);
   <div style="background:white; display:inline-block; padding:12px;">
     <canvas id="lineQR" width="120" height="120"></canvas>
   </div>
-  <p style="font-size:10px; letter-spacing:.2em; color:var(--clay); margin-top:8px;">QRコードでも追加できます</p>
+  <p style="font-size:10px; letter-spacing:.2em; color:#9e7b5a; margin-top:8px;">QRコードでも追加できます</p>
 </div>
 ```
 
@@ -1430,20 +1442,18 @@ transform: translateY(-50%);
 
 <!-- RESERVE -->
 
-<section id="reserve" class="reserve">
+<section id="reserve" class="reserve" style="background: #1a1512 !important; color: #f5f0e8 !important;">
   <div style="max-width: 680px; margin: 0 auto;">
     <div class="section-label reveal" style="justify-content: center;">
       <span>Reservation</span>
     </div>
-    <h2 class="section-title reveal">ご予約</h2>
-    <p class="reserve-note reveal">
-      当院は完全予約制です。<br>
-      お電話にてご希望の日時をお伝えください。<br>
-      お客様のご都合に合わせて、できる限り柔軟にご対応いたします。<br>
-      初めての方もお気軽にどうぞ。
+    <h2 class="section-title reveal" style="color: #f5f0e8;">ご予約</h2>
+    <p class="reserve-note reveal" style="color: rgba(245,240,232,0.6);">
+      ご予約はLINE、お電話でお願い致します。<br>
+      （お急ぎの場合はお電話で）
     </p>
-    <a href="tel:0463676342" class="reserve-tel reveal">0463-67-6342</a>
-    <p class="reserve-tel-note reveal">TAP TO CALL</p>
+    <a href="tel:0463676342" class="reserve-tel reveal" style="color: #d4b06a; display:block; font-family:'Cormorant Garamond',serif; font-size:clamp(32px,6vw,52px); text-decoration:none; margin-bottom:12px;">0463-67-6342</a>
+    <p class="reserve-tel-note reveal" style="color: rgba(245,240,232,0.4); font-size:11px; letter-spacing:.25em;">TAP TO CALL</p>
   </div>
 </section>
 
@@ -1455,6 +1465,19 @@ transform: translateY(-50%);
 </footer>
 
 <script>
+  // Voice toggle
+  function toggleVoice() {
+    const more = document.getElementById('voiceMore');
+    const btn = document.getElementById('voiceBtn');
+    if (more.style.display === 'none') {
+      more.style.display = 'block';
+      btn.textContent = '閉じる －';
+    } else {
+      more.style.display = 'none';
+      btn.textContent = 'もっと見る ＋';
+    }
+  }
+
   // Lightbox
   const photos = ['img3.jpeg','img4.jpeg','img1.jpeg','img2.jpeg'];
   let currentPhoto = 0;
@@ -1541,12 +1564,12 @@ transform: translateY(-50%);
         couponArea.appendChild(couponDiv);
 
         const note = document.createElement('p');
-        note.style.cssText = 'font-size:11px; letter-spacing:.15em; color:var(--matcha); margin-bottom:8px;';
+        note.style.cssText = 'font-size:11px; letter-spacing:.15em; color:#6b7c5a; margin-bottom:8px;';
         note.textContent = '↑ QRを読み込んでクーポンを取得';
         couponArea.appendChild(note);
 
         const badge = document.createElement('div');
-        badge.style.cssText = 'display:inline-block; background:var(--gold); color:white; font-size:11px; letter-spacing:.2em; padding:6px 16px;';
+        badge.style.cssText = 'display:inline-block; background:#b8963e; color:white; font-size:11px; letter-spacing:.2em; padding:6px 16px;';
         badge.textContent = '🌿 発行受付中';
         couponArea.appendChild(badge);
 
@@ -1570,8 +1593,8 @@ transform: translateY(-50%);
         const nextMonth = month === 12 ? 1 : month + 1;
         couponArea.innerHTML = `
           <div style="padding:24px; border:1px solid rgba(107,124,90,0.2); background:rgba(107,124,90,0.04);">
-            <p style="font-size:13px; letter-spacing:.15em; color:var(--matcha); margin-bottom:8px;">現在は発行期間外です</p>
-            <p style="font-size:12px; letter-spacing:.1em; color:var(--clay); line-height:2;">次回：${nextMonth}月 1日〜3日</p>
+            <p style="font-size:13px; letter-spacing:.15em; color:#6b7c5a; margin-bottom:8px;">現在は発行期間外です</p>
+            <p style="font-size:12px; letter-spacing:.1em; color:#9e7b5a; line-height:2;">次回：${nextMonth}月 1日〜3日</p>
           </div>
         `;
       }
