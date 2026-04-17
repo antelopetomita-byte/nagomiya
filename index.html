@@ -126,7 +126,12 @@ opacity: 0;
 animation: fadeUp 1s 0.5s ease forwards;
 }
 
-.hero-title span {
+.hero-title .hero-wa {
+color: #b8963e;
+display: inline;
+}
+
+.hero-title .hero-roman {
 display: block;
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
@@ -922,8 +927,8 @@ transform: translateY(-50%);
 
   <p class="hero-kana">整　体　院　／　平　塚</p>
   <h1 class="hero-title">
-    風の谷の和み屋
-    <span>kazenotanino nagomiya</span>
+    風の谷の<span class="hero-wa">和</span>み屋
+    <span class="hero-roman">kazenotanino nagomiya</span>
   </h1>
   <p class="hero-tagline">
     心と身体を軽くして、<br>
@@ -1058,7 +1063,7 @@ transform: translateY(-50%);
     <div class="feature-card reveal" style="transition-delay: 0.1s">
       <div class="feature-number">02</div>
       <h3 class="feature-title">古民家リノベーション空間</h3>
-      <p class="feature-body">おしゃれでありながら、実家のような温かみのある空間。2時間があっという間に感じられる、特別な癒しの場です。</p>
+      <p class="feature-body">おしゃれでありながら、実家のような温かみのある空間。施術時間があっという間に感じられる、特別な癒しの場です。</p>
     </div>
     <div class="feature-card reveal" style="transition-delay: 0.2s">
       <div class="feature-number">03</div>
@@ -1068,7 +1073,7 @@ transform: translateY(-50%);
     <div class="feature-card reveal" style="transition-delay: 0.3s">
       <div class="feature-number">04</div>
       <h3 class="feature-title">出張施術・セミナーも対応</h3>
-      <p class="feature-body">ご要望に応じて出張施術も可能。またサービス業の方向けに姿勢作りセミナーも開催しています。</p>
+      <p class="feature-body">ご要望に応じて出張施術も可能。またサービス業の方向けに姿勢作りセミナーも承ります。</p>
     </div>
   </div>
 </section>
@@ -1379,6 +1384,16 @@ transform: translateY(-50%);
         </table>
       </div>
     </div>
+
+```
+<!-- 送迎案内 -->
+<div class="reveal" style="margin-top: 40px; padding: 28px 32px; border-left: 2px solid #b8963e; background: rgba(184,150,62,0.05);">
+  <p style="font-size:11px; letter-spacing:.3em; color:#b8963e; margin-bottom:10px;">SHUTTLE SERVICE</p>
+  <p style="font-family:'Shippori Mincho',serif; font-size:16px; letter-spacing:.1em; color:#1a1512; margin-bottom:12px;">平塚駅・大磯駅からの送迎を承ります</p>
+  <p style="font-size:13px; line-height:2.2; letter-spacing:.08em; color:#9e7b5a;">ご予約の際にお気軽にお申し付けください。<br>遠慮なくご利用いただけます。</p>
+</div>
+```
+
   </div>
 </section>
 
