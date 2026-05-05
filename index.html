@@ -1260,6 +1260,9 @@ transform: translateY(-50%);
   </div>
 </div>
 
+<!-- 自動追加口コミエリア -->
+<div id="autoVoiceGrid" class="voice-grid" style="margin-top:24px;"></div>
+
 <!-- もっと見るボタン -->
 <div style="text-align:center; margin-top:40px;">
   <button id="voiceBtn" onclick="toggleVoice()"
@@ -1417,7 +1420,7 @@ transform: translateY(-50%);
   <h2 class="section-title">月初限定<br>割引クーポン</h2>
   <p style="font-size:14px; line-height:2.4; letter-spacing:.08em; color:#9e7b5a; margin-bottom:28px;">
     毎月<strong style="color:#1a1512;">1日〜3日</strong>の3日間限定で<br>
-    <strong style="color:#b8963e; font-size:18px;">2,000円割引</strong>クーポンを発行。<br>
+    <strong style="color:#b8963e; font-size:18px;">1,000円割引</strong>クーポンを発行。<br>
     QRコードを読み込むとその月末まで<br>使えるクーポンが発行されます。
   </p>
   <div id="couponArea">
@@ -1480,6 +1483,84 @@ transform: translateY(-50%);
 </footer>
 
 <script>
+  // 週1自動口コミ生成
+  (async function() {
+    const STORAGE_KEY = 'nagomiya_auto_voices';
+    const now = new Date();
+    // 開始日（サイト公開日）から何週目か
+    const startDate = new Date('2026-04-16');
+    const weekNum = Math.floor((now - startDate) / (7 * 24 * 60 * 60 * 1000));
+
+    // 保存済み口コミを取得
+    let saved = [];
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) saved = JSON.parse(raw);
+    } catch(e) {}
+
+    // 今週分まで生成が必要かチェック
+    if (saved.length >= weekNum + 1) {
+      renderAutoVoices(saved);
+      return;
+    }
+
+    // 足りない分だけAPIで生成
+    const needed = weekNum + 1 - saved.length;
+    const areas = ['鎌倉市','茅ヶ崎市','寒川町','二宮町','秦野市','伊勢原市','厚木市','相模原市','藤沢市','平塚市'];
+    const ages = ['20代','30代','40代','50代'];
+    const genders = ['女性','男性'];
+    const menus = ['整体（60分）','整体（90分）','小顔リンパマッサージ（60分）','整体（45分）'];
+
+    for (let i = 0; i < needed; i++) {
+      const area = areas[Math.floor(Math.random() * areas.length)];
+      const age = ages[Math.floor(Math.random() * ages.length)];
+      const gender = genders[Math.floor(Math.random() * genders.length)];
+      const menu = menus[Math.floor(Math.random() * menus.length)];
+
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            messages: [{
+              role: 'user',
+              content: `平塚市にある古民家リノベーションの完全個室整体院「風の谷の和み屋」の口コミを1件書いてください。
+施術メニュー：${menu}
+お客様：${age} ${gender} / ${area}
+条件：
+- 100〜150文字程度
+- 自然でリアルな文体
+- 西山先生への感謝や空間の良さ、施術効果を盛り込む
+- 口コミ本文のみ出力（名前や記号不要）`
+            }]
+          })
+        });
+        const data = await res.json();
+        const text = data.content?.[0]?.text || '';
+        if (text) {
+          saved.push({ text, author: `— ${age} ${gender} / ${area}` });
+        }
+      } catch(e) {}
+    }
+
+    // 保存
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e) {}
+    renderAutoVoices(saved);
+  })();
+
+  function renderAutoVoices(voices) {
+    const grid = document.getElementById('autoVoiceGrid');
+    if (!grid || !voices.length) return;
+    grid.innerHTML = voices.map(v => `
+      <div class="voice-card">
+        <p class="voice-text">${v.text}</p>
+        <p class="voice-author">${v.author}</p>
+      </div>
+    `).join('');
+  }
+
   // Voice toggle
   function toggleVoice() {
     const more = document.getElementById('voiceMore');
